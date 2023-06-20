@@ -1,0 +1,39 @@
+<resources>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+    <string name="app_name">Library Phuong Nam</string>
+    <string name="ten_dang_nhap">Email</string>
+    <string name="mat_khau">Password</string>
+    <string name="quen_mat_khau">Forgot password?</string>
+    <string name="dang_nhap">Login</string>
+    <string name="hoac_dang_nhap">Or login?</string>
+    <string name="qlpmuon">Quản lý phiếu mượn</string>
+    <string name="qllsach">Quản lý loại sách</string>
+    <string name="qlsach">Quản lý sách</string>
+    <string name="qltvien">Quản lý thành viên</string>
+    <string name="top10">Top 10 sách mượn nhiều nhất</string>
+    <string name="doanh_thu">Doanh thu</string>
+    <string name="doi_mat_khau">Đổi mật khẩu</string>
+    <string name="dang_xuat">Đăng xuất</string>
+    <string name="thong_ke">Thống kê</string>
+    <string name="nguoi_dung">Người dùng</string>
+    <string name="welcome">Welcome</string>
+    <string name="name_tt1">HỒ NGUYỄN THÁI TÚ</string>
+    <string name="tro_ve">Trở Về</string>
+    <string name="menu_doimk">Đổi mật khẩu</string>
+    <string name="mat_khau_moi">Mật khẩu mới</string>
+    <string name="nhap_lai_mk">Nhập lại mật khẩu</string>
+    <string name="mat_khau_cu">Mật khẩu cũ</string>
+    <string name="remember_pass">Remember Pass?</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
