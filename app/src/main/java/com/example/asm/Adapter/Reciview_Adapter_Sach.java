@@ -65,35 +65,35 @@ public class Reciview_Adapter_Sach extends RecyclerView.Adapter<Reciview_Adapter
         if(list != null){
          holder.tvMaSach.setText("Mã sách : "+list.get(position).getMaSach());
          holder.tvTenSach.setText("Tên sách : "+list.get(position).getTenSach());
-         holder.tvTrangSach.setText("Trang sách : " + list.get(position).getTrangSach());
+       //  holder.tvTrangSach.setText("Trang sách : " + list.get(position).getTrangSach());
          holder.tvGiaThue.setText("Giá thuê : "+list.get(position).getGiaThue());
          holder.tvLoaiSach.setText("Tên loại sách : "+loaiSachDao.getId(String.valueOf(list.get(position).getMaLoaiSach())).getTenLoaiSach());
 
-         holder.btnSetTS.setOnClickListener(v -> {
-             dialogSach = new Dialog(context);
-             dialogSach.setContentView(R.layout.item_dialog_trang_sach);
-
-             etTrangSach = dialogSach.findViewById(R.id.etTrangSach);
-             btnOK = dialogSach.findViewById(R.id.btnOK);
-
-             btnOK.setOnClickListener(v1 -> {
-                 int maSach = list.get(holder.getAdapterPosition()).getMaSach();
-                 String trangSachU = etTrangSach.getText().toString();
-                 if (trangSachU.isEmpty()){
-                     Toast.makeText(context, "Bạn cần nhập trang sách", Toast.LENGTH_SHORT).show();
-
-                 }else {
-                     if (sachDao.updataTrangSach(maSach, Integer.parseInt(trangSachU)) > 0){
-                         Toast.makeText(context, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
-                         sachFragment.setData();
-                     }else {
-                         Toast.makeText(context, "Cập nhật thất bại", Toast.LENGTH_SHORT).show();
-                     }
-                     dialogSach.dismiss();
-                 }
-             });
-             dialogSach.show();
-         });
+//         holder.btnSetTS.setOnClickListener(v -> {
+//             dialogSach = new Dialog(context);
+//             dialogSach.setContentView(R.layout.item_dialog_trang_sach);
+//
+//             etTrangSach = dialogSach.findViewById(R.id.etTrangSach);
+//             btnOK = dialogSach.findViewById(R.id.btnOK);
+//
+//             btnOK.setOnClickListener(v1 -> {
+//                 int maSach = list.get(holder.getAdapterPosition()).getMaSach();
+//                 String trangSachU = etTrangSach.getText().toString();
+//                 if (trangSachU.isEmpty()){
+//                     Toast.makeText(context, "Bạn cần nhập trang sách", Toast.LENGTH_SHORT).show();
+//
+//                 }else {
+//                     if (sachDao.updataTrangSach(maSach, Integer.parseInt(trangSachU)) > 0){
+//                         Toast.makeText(context, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
+//                         sachFragment.setData();
+//                     }else {
+//                         Toast.makeText(context, "Cập nhật thất bại", Toast.LENGTH_SHORT).show();
+//                     }
+//                     dialogSach.dismiss();
+//                 }
+//             });
+//             dialogSach.show();
+//         });
          holder.ivDelete.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
@@ -221,8 +221,8 @@ public class Reciview_Adapter_Sach extends RecyclerView.Adapter<Reciview_Adapter
             tvTenSach = itemView.findViewById(R.id.tvTenSach);
             tvGiaThue = itemView.findViewById(R.id.tvGiaThue);
             tvLoaiSach = itemView.findViewById(R.id.tvLoaiSach);
-            tvTrangSach = itemView.findViewById(R.id.tvTrangSach);
-            btnSetTS = itemView.findViewById(R.id.btnSetTrangSach);
+//            tvTrangSach = itemView.findViewById(R.id.tvTrangSach);
+//            btnSetTS = itemView.findViewById(R.id.btnSetTrangSach);
 
             ivUpdate = itemView.findViewById(R.id.iVUpdateSach);
             ivDelete = itemView.findViewById(R.id.iVXoaSach);
