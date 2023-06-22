@@ -18,12 +18,12 @@ public class Dbhelper extends SQLiteOpenHelper {
             "('admin','123','Hồ Nguyễn Thái Tú')," +
             "('huongle','123','Lê Thị Thu Hường')," +
             "('phuhm','123','Hồ Minh Phú')";
-    private static final String IntoThanhVien = "INSERT INTO ThanhVien(maTV,hoTenTV,namSinh,tienTV) VALUES" +
-            "('1','Nguyen Van Teo','2003', '3000')," +
-            "('2','Nguyen Van Nam','1998', '2000')," +
-            "('3','Tran Van Thao','2001', '900')," +
-            "('4','Le Thi Huyen','2008', '5000')," +
-            "('5','Tran Thi Luu','2003', '400')";
+    private static final String IntoThanhVien = "INSERT INTO ThanhVien(maTV,hoTenTV,namSinh) VALUES" +
+            "('1','Nguyen Van Teo','2003')," +
+            "('2','Nguyen Van Nam','1998')," +
+            "('3','Tran Van Thao','2001')," +
+            "('4','Le Thi Huyen','2008')," +
+            "('5','Tran Thi Luu','2003')";
     private static final String IntoSach = "INSERT INTO Sach(maSach,tenSach,giaThue,maLoaiSach) VALUES" +
             "('1','Java1','300000','1')," +
             "('2','Java2','300000','1')," +
@@ -74,8 +74,7 @@ public class Dbhelper extends SQLiteOpenHelper {
         String ThanhVien = " CREATE TABLE ThanhVien ( " +
                 "maTV integer primary key autoincrement, " +
                 "hoTenTV text not null, " +
-                "namSinh text not null, " +
-                "tienTV integer not null " +
+                "namSinh text not null " +
                 ")";
         sqLiteDatabase.execSQL(ThanhVien);
 

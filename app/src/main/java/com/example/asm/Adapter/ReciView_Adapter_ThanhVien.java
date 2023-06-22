@@ -55,13 +55,13 @@ public class ReciView_Adapter_ThanhVien extends RecyclerView.Adapter<ReciView_Ad
            holder.tvMaTT.setText("Mã thành viên : "+list.get(position).getMaTV());
            holder.tvTenTT.setText("Tên thành viên : " + list.get(position).getHoTenTV());
            holder.tvNSTT.setText("Năm sinh : " +list.get(position).getNamSinh());
-           holder.tvTienTV.setText("Tiền: " + list.get(position).getTienTV());
+          // holder.tvTienTV.setText("Tiền: " + list.get(position).getTienTV());
            //
-           if (list.get(position).getTienTV() > 1000){
-               holder.tvTienTV.setTypeface(null, Typeface.BOLD);
-           }else{
-               holder.tvTienTV.setTypeface(null, Typeface.NORMAL);
-           }
+//           if (list.get(position).getTienTV() > 1000){
+//               holder.tvTienTV.setTypeface(null, Typeface.BOLD);
+//           }else{
+//               holder.tvTienTV.setTypeface(null, Typeface.NORMAL);
+//           }
            holder.btnXoa.setOnClickListener(new View.OnClickListener() {
                @Override
                public void onClick(View view) {
@@ -87,7 +87,7 @@ public class ReciView_Adapter_ThanhVien extends RecyclerView.Adapter<ReciView_Ad
                    etMaTT.setText(String.valueOf(list.get(holder.getAdapterPosition()).getMaTV()));
                    etTenTT.setText(list.get(holder.getAdapterPosition()).getHoTenTV());
                    etNamSinh.setText(String.valueOf(list.get(holder.getAdapterPosition()).getNamSinh()));
-                   etTienTV.setText(String.valueOf(list.get(holder.getAdapterPosition()).getTienTV()));
+                  // etTienTV.setText(String.valueOf(list.get(holder.getAdapterPosition()).getTienTV()));
 
                        // xu li
                    btnCancel.setOnClickListener(new View.OnClickListener() {
@@ -105,7 +105,7 @@ public class ReciView_Adapter_ThanhVien extends RecyclerView.Adapter<ReciView_Ad
                            thanhVien.setMaTV(Integer.parseInt(etMaTT.getText().toString()));
                            thanhVien.setHoTenTV(etTenTT.getText().toString());
                            thanhVien.setNamSinh(etNamSinh.getText().toString());
-                           thanhVien.setTienTV(Integer.parseInt(etTienTV.getText().toString()));
+                          // thanhVien.setTienTV(Integer.parseInt(etTienTV.getText().toString()));
                            if(validate() > 0){
                                if(thanhVienDao.updata(thanhVien) > 0){
                                    Toast.makeText(context, "Cập Nhập Thành Công", Toast.LENGTH_SHORT).show();
@@ -157,7 +157,7 @@ public class ReciView_Adapter_ThanhVien extends RecyclerView.Adapter<ReciView_Ad
             tvNSTT = itemView.findViewById(R.id.tvNamSinh);
             btnXoa = itemView.findViewById(R.id.iVXoaThanhVien);
             btnSua = itemView.findViewById(R.id.iVUpdate);
-            tvTienTV = itemView.findViewById(R.id.tvTienTV);
+          // tvTienTV = itemView.findViewById(R.id.tvTienTV);
         }
     }
 }
