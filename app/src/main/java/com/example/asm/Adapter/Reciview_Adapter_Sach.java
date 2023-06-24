@@ -27,6 +27,8 @@ import com.example.asm.SQLite.model.Sach;
 import com.example.asm.ui.home.sach.sachFragment;
 
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Reciview_Adapter_Sach extends RecyclerView.Adapter<Reciview_Adapter_Sach.viewHolder> {
     Context context;
@@ -36,13 +38,16 @@ public class Reciview_Adapter_Sach extends RecyclerView.Adapter<Reciview_Adapter
     SachDao sachDao;
 
     Dialog dialog , dialogSach;
-    EditText eTMaS,etTenS,etGiaThue, etTrangSach;
+    EditText eTMaS,etTenS,etGiaThue, etSoLuong;
     Button btnSave,btnCancel, btnOK;
     Spinner spinner;
     List<LoaiSach> listLS;
     Spinner_Adapter_LSach spinnerAdapterSach;
     int maLS,Vitri;
     Sach sach;
+
+    // biểu thức chính quy
+    final String regex = "^[1-9][0-9]*$";
 
     public Reciview_Adapter_Sach(Context context, List<Sach> list, sachFragment sachFragment) {
         this.context = context;
@@ -65,35 +70,45 @@ public class Reciview_Adapter_Sach extends RecyclerView.Adapter<Reciview_Adapter
         if(list != null){
          holder.tvMaSach.setText("Mã sách : "+list.get(position).getMaSach());
          holder.tvTenSach.setText("Tên sách : "+list.get(position).getTenSach());
-       //  holder.tvTrangSach.setText("Trang sách : " + list.get(position).getTrangSach());
+         holder.tvSoLuong.setText("Số Lượng : " + list.get(position).getSoLuong());
          holder.tvGiaThue.setText("Giá thuê : "+list.get(position).getGiaThue());
          holder.tvLoaiSach.setText("Tên loại sách : "+loaiSachDao.getId(String.valueOf(list.get(position).getMaLoaiSach())).getTenLoaiSach());
+         // updata số lượng sách
+         holder.btnSetSoLuong.setOnClickListener(v -> {
+             dialogSach = new Dialog(context);
+             dialogSach.setContentView(R.layout.item_dialog_trang_sach);
 
-//         holder.btnSetTS.setOnClickListener(v -> {
-//             dialogSach = new Dialog(context);
-//             dialogSach.setContentView(R.layout.item_dialog_trang_sach);
-//
-//             etTrangSach = dialogSach.findViewById(R.id.etTrangSach);
-//             btnOK = dialogSach.findViewById(R.id.btnOK);
-//
-//             btnOK.setOnClickListener(v1 -> {
-//                 int maSach = list.get(holder.getAdapterPosition()).getMaSach();
-//                 String trangSachU = etTrangSach.getText().toString();
-//                 if (trangSachU.isEmpty()){
-//                     Toast.makeText(context, "Bạn cần nhập trang sách", Toast.LENGTH_SHORT).show();
-//
-//                 }else {
-//                     if (sachDao.updataTrangSach(maSach, Integer.parseInt(trangSachU)) > 0){
-//                         Toast.makeText(context, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
-//                         sachFragment.setData();
-//                     }else {
-//                         Toast.makeText(context, "Cập nhật thất bại", Toast.LENGTH_SHORT).show();
-//                     }
-//                     dialogSach.dismiss();
-//                 }
-//             });
-//             dialogSach.show();
-//         });
+             etSoLuong = dialogSach.findViewById(R.id.etSoLuong);
+             btnOK = dialogSach.findViewById(R.id.btnOK);
+
+             btnOK.setOnClickListener(v1 -> {
+                 int maSach = list.get(holder.getAdapterPosition()).getMaSach();
+                 String soLuong = etSoLuong.getText().toString();
+
+                 // check biểu thức chính quy
+                 Pattern pattern = Pattern.compile(regex);
+                 Matcher matcher = pattern.matcher(soLuong);
+                 // validate
+                 if (soLuong.isEmpty()){
+                     Toast.makeText(context, "Bạn cần nhập số lượng sách", Toast.LENGTH_SHORT).show();
+
+                 }
+                 else  if(!matcher.matches()){
+                     Toast.makeText(context, "Bạn cần nhập số", Toast.LENGTH_SHORT).show();
+                 } else  {
+                     if (sachDao.updataSoLuong(maSach, Integer.parseInt(soLuong)) > 0){
+                         Toast.makeText(context, "Cập nhật thành công", Toast.LENGTH_SHORT).show();
+                         sachFragment.setData();
+                     }else {
+                         Toast.makeText(context, "Cập nhật thất bại", Toast.LENGTH_SHORT).show();
+                     }
+                     dialogSach.dismiss();
+                 }
+             });
+             dialogSach.show();
+         });
+
+
          holder.ivDelete.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View view) {
@@ -210,10 +225,10 @@ public class Reciview_Adapter_Sach extends RecyclerView.Adapter<Reciview_Adapter
     }
 
     public class viewHolder extends RecyclerView.ViewHolder{
-         TextView tvMaSach,tvTenSach,tvGiaThue,tvLoaiSach, tvTrangSach;
+         TextView tvMaSach,tvTenSach,tvGiaThue,tvLoaiSach, tvSoLuong;
          ImageView ivUpdate,ivDelete;
 
-         LinearLayout btnSetTS ;
+         LinearLayout btnSetSoLuong ;
         public viewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -221,8 +236,8 @@ public class Reciview_Adapter_Sach extends RecyclerView.Adapter<Reciview_Adapter
             tvTenSach = itemView.findViewById(R.id.tvTenSach);
             tvGiaThue = itemView.findViewById(R.id.tvGiaThue);
             tvLoaiSach = itemView.findViewById(R.id.tvLoaiSach);
-//            tvTrangSach = itemView.findViewById(R.id.tvTrangSach);
-//            btnSetTS = itemView.findViewById(R.id.btnSetTrangSach);
+            tvSoLuong = itemView.findViewById(R.id.tvSoLuong);
+            btnSetSoLuong = itemView.findViewById(R.id.btnSetSoLuong);
 
             ivUpdate = itemView.findViewById(R.id.iVUpdateSach);
             ivDelete = itemView.findViewById(R.id.iVXoaSach);
