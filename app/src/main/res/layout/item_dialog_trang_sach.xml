@@ -13,13 +13,13 @@
         android:gravity="center"
         android:layout_height="wrap_content"
         android:textStyle="bold"
-        android:text="Nhập số lượng trang sách" />
+        android:text="Nhập số lượng sách" />
 
     <EditText
-        android:id="@+id/etTrangSach"
+        android:id="@+id/etSoLuong"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="nhập số trang sách"
+        android:hint="nhập số lượng sách"
         android:minHeight="48dp" />
 
     <Button

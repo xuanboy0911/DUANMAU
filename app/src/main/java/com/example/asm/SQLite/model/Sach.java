@@ -1,18 +1,27 @@
 package com.example.asm.SQLite.model;
 
 public class Sach {
-    private  int maSach,giaThue,maLoaiSach;
-            //trangSach;
+    private  int maSach,giaThue,maLoaiSach,soLuong;
+            ;
     private String tenSach;
 
     public Sach() {
     }
 
-    public Sach(int maSach, int giaThue, int maLoaiSach, String tenSach) {
+    public Sach(int maSach, int giaThue, int maLoaiSach, int soLuong, String tenSach) {
         this.maSach = maSach;
         this.giaThue = giaThue;
         this.maLoaiSach = maLoaiSach;
+        this.soLuong = soLuong;
         this.tenSach = tenSach;
+    }
+
+    public int getSoLuong() {
+        return soLuong;
+    }
+
+    public void setSoLuong(int soLuong) {
+        this.soLuong = soLuong;
     }
 
     public int getMaSach() {

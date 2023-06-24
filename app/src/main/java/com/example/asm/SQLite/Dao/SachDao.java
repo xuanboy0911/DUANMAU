@@ -24,7 +24,7 @@ public class SachDao {
     public long insert(Sach sach){
         ContentValues values = new ContentValues();
         values.put("tenSach", sach.getTenSach());
-       // values.put("trangSach", sach.getTrangSach());
+        values.put("soLuong", sach.getSoLuong());
         values.put("giaThue", sach.getGiaThue());
         values.put("maLoaiSach", sach.getMaLoaiSach());
 
@@ -34,18 +34,18 @@ public class SachDao {
     public int updata(Sach sach){
         ContentValues values = new ContentValues();
         values.put("tenSach", sach.getTenSach());
-   //     values.put("trangSach", sach.getTrangSach());
+        values.put("soLuong", sach.getSoLuong());
         values.put("giaThue", sach.getGiaThue());
         values.put("maLoaiSach", sach.getMaLoaiSach());
 
         return db.update("Sach",values,"maSach=?",new String[]{String.valueOf(sach.getMaSach())});
     }
 
-//    public int updataTrangSach(int maSach ,int trangSach){
-//        ContentValues values = new ContentValues();
-//        values.put("trangSach", trangSach);
-//        return db.update("Sach",values,"maSach=?",new String[]{String.valueOf(maSach)});
-//    }
+    public int updataSoLuong(int maSach ,int soLuong){
+        ContentValues values = new ContentValues();
+        values.put("soLuong", soLuong);
+        return db.update("Sach",values,"maSach=?",new String[]{String.valueOf(maSach)});
+    }
     public int delete(String id){
         return db.delete("Sach","maSach = ?",new String[]{String.valueOf(id)});
     }
@@ -58,7 +58,7 @@ public class SachDao {
             Sach sach = new Sach();
             sach.setMaSach(Integer.parseInt(cursor.getString(cursor.getColumnIndex("maSach"))));
             sach.setTenSach(cursor.getString(cursor.getColumnIndex("tenSach")));
-          //  sach.setTrangSach(Integer.parseInt(cursor.getString(cursor.getColumnIndex("trangSach"))));
+            sach.setSoLuong(Integer.parseInt(cursor.getString(cursor.getColumnIndex("soLuong"))));
             sach.setGiaThue(Integer.parseInt(cursor.getString(cursor.getColumnIndex("giaThue"))));
             sach.setMaLoaiSach(Integer.parseInt(cursor.getString(cursor.getColumnIndex("maLoaiSach"))));
             list.add(sach);
