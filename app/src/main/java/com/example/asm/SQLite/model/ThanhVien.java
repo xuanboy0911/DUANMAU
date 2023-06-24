@@ -1,14 +1,15 @@
 package com.example.asm.SQLite.model;
 
 public class ThanhVien {
-    private  int maTV;
+    private  int maTV, soTK;
     private  String hoTenTV, namSinh;
 
 
-    public ThanhVien(int maTV, String hoTenTV, String namSinh) {
+    public ThanhVien(int maTV, int soTK, String hoTenTV, String namSinh) {
         this.maTV = maTV;
         this.hoTenTV = hoTenTV;
         this.namSinh = namSinh;
+        this.soTK = soTK;
     }
 
     public ThanhVien() {
@@ -20,6 +21,14 @@ public class ThanhVien {
 
     public void setMaTV(int maTV) {
         this.maTV = maTV;
+    }
+
+    public int getSoTK() {
+        return soTK;
+    }
+
+    public void setSoTK(int soTK) {
+        this.soTK = soTK;
     }
 
     public String getHoTenTV() {
@@ -42,8 +51,9 @@ public class ThanhVien {
     public String toString() {
         return "ThanhVien{" +
                 "maTV=" + maTV +
+                ", soTK=" + soTK +
                 ", hoTenTV='" + hoTenTV + '\'' +
                 ", namSinh='" + namSinh + '\'' +
-                           '}';
+                '}';
     }
 }

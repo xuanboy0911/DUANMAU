@@ -33,7 +33,7 @@ public class thanhVienFragment extends Fragment {
     Dialog dialog;
     ThanhVien thanhVien;
     FloatingActionButton fab;
-    EditText etMaTT,etTenTT,etNamSinh, etTienTV;
+    EditText etMaTT,etTenTT,etNamSinh, etSoTK;
     Button btnSave,btnCancel;
 
     @Override
@@ -103,7 +103,7 @@ public class thanhVienFragment extends Fragment {
         etMaTT = dialog.findViewById(R.id.etMaTTDialog);
         etTenTT = dialog.findViewById(R.id.etTenTTDialog);
         etNamSinh = dialog.findViewById(R.id.etNamSinhDialog);
-        etTienTV = dialog.findViewById(R.id.etTienTVDialog);
+        etSoTK = dialog.findViewById(R.id.etSoTKDialog);
         btnCancel = dialog.findViewById(R.id.btnCancell);
         btnSave = dialog.findViewById(R.id.btnSavee);
         // check insert 0 or update 1
@@ -144,7 +144,7 @@ public class thanhVienFragment extends Fragment {
     }
 
     public int validate(){
-        if(etTenTT.getText().toString().isEmpty() || etNamSinh.getText().toString().isEmpty() || etTienTV.getText().toString().isEmpty()){
+        if(etTenTT.getText().toString().isEmpty() || etNamSinh.getText().toString().isEmpty() || etSoTK.getText().toString().isEmpty()){
             Toast.makeText(getContext(), "Bạn phải nhập đầy đủ thông tin", Toast.LENGTH_SHORT).show();
             return -1;
         }

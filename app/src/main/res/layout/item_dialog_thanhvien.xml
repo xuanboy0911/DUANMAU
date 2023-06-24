@@ -40,12 +40,12 @@
         android:textColor="@color/primary"
         android:textStyle="italic"
         android:textSize="20dp"
-        android:id="@+id/etTienTVDialog"
+        android:id="@+id/etSoTKDialog"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
 
         android:minHeight="48dp"
-        android:hint=" Tiền Thành Viên" />
+        android:hint=" Số Tài Khoản" />
 
     <LinearLayout
         android:layout_width="300dp"

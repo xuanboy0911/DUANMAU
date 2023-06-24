@@ -26,7 +26,7 @@ public class ThanhVienDao {
         ContentValues values = new ContentValues();
         values.put("hoTenTV",thanhVien.getHoTenTV());
         values.put("namSinh",thanhVien.getNamSinh());
-      //  values.put("tienTV", thanhVien.getTienTV());
+        values.put("soTK", thanhVien.getSoTK());
         return db.insert("ThanhVien",null,values);
     }
 
@@ -35,7 +35,7 @@ public class ThanhVienDao {
 
         values.put("hoTenTV",thanhVien.getHoTenTV());
         values.put("namSinh",thanhVien.getNamSinh());
-      //  values.put("tienTV", thanhVien.getTienTV());
+        values.put("soTK", thanhVien.getSoTK());
 
         return db.update("ThanhVien",values,"maTV=?",new String[]{String.valueOf(thanhVien.getMaTV())});
     }
@@ -53,11 +53,10 @@ public class ThanhVienDao {
             thanhVien.setMaTV(Integer.parseInt(cursor.getString(cursor.getColumnIndex("maTV"))));
             thanhVien.setHoTenTV(cursor.getString(cursor.getColumnIndex("hoTenTV")));
             thanhVien.setNamSinh(cursor.getString(cursor.getColumnIndex("namSinh")));
-           // thanhVien.setTienTV(Integer.parseInt(cursor.getString(cursor.getColumnIndex("tienTV"))));
+            thanhVien.setSoTK(Integer.parseInt(cursor.getString(cursor.getColumnIndex("soTK"))));
             list.add(thanhVien);
         }
         return list;
-        //oke
     }
     // lấy tất cả data
     public List<ThanhVien> getAll(){

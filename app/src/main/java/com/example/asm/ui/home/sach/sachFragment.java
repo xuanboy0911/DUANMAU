@@ -42,7 +42,6 @@ public class sachFragment extends Fragment {
     Spinner_Adapter_LSach spinnerAdapterSach;
     int maLS;
     Sach sach;
-   // xonng bài 3 roi đó
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {

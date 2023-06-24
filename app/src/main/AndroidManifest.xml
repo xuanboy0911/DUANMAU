@@ -12,11 +12,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Asm">
         <activity
-            android:name=".Wecome"
+            android:name=".Welcome2"
             android:exported="false"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"/>
         <activity
-            android:name=".Welcome2"
+            android:name=".Wecome"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>

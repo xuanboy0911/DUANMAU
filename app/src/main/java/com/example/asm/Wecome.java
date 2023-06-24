@@ -22,7 +22,7 @@ public class Wecome extends AppCompatActivity {
             @Override
             public void run() {
                 //chuyen man
-                Intent intent = new Intent(Wecome.this, Login.class);
+                Intent intent = new Intent(Wecome.this, Welcome2.class);
                 startActivity(intent);
                 finish();
             }
