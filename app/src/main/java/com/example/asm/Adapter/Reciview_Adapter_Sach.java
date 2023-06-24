@@ -30,7 +30,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Reciview_Adapter_Sach extends RecyclerView.Adapter<Reciview_Adapter_Sach.viewHolder> {
+public class Reciview_Adapter_Sach extends RecyclerView.Adapter<Reciview_Adapter_Sach.viewHolder> implements LayoutInflater.Filter {
     Context context;
     List<Sach> list;
     LoaiSachDao loaiSachDao;
@@ -222,6 +222,11 @@ public class Reciview_Adapter_Sach extends RecyclerView.Adapter<Reciview_Adapter
     @Override
     public int getItemCount() {
         return list.size();
+    }
+
+    @Override
+    public boolean onLoadClass(Class aClass) {
+        return false;
     }
 
     public class viewHolder extends RecyclerView.ViewHolder{

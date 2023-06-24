@@ -24,19 +24,19 @@ public class Dbhelper extends SQLiteOpenHelper {
             "('3','Tran Van Thao','2001', '100029838')," +
             "('4','Le Thi Huyen','2008', '100029830')," +
             "('5','Tran Thi Luu','2003', '100029835')";
-    private static final String IntoSach = "INSERT INTO Sach(maSach,tenSach,giaThue,maLoaiSach) VALUES" +
-            "('1','Java1','300000','1')," +
-            "('2','Java2','300000','1')," +
-            "('3','Java3','300000','1')," +
-            "('4','FontEnd','300000','2')," +
-            "('5','BackEnd','300000','2')," +
-            "('6','JavaScript Cơ Bản','300000','3')," +
-            "('7','JavaScript Nâng Cao','300000','3')," +
-            "('8','React Native IOS','300000','4')," +
-            "('9','React Native Web','300000','4')," +
-            "('10','React Native Android','300000','4')," +
-            "('11','Android Co Ban','300000','5')," +
-            "('12','Android Nang Cao','300000','5')";
+    private static final String IntoSach = "INSERT INTO Sach(maSach,tenSach,giaThue,soLuong,maLoaiSach) VALUES" +
+            "('1','Java1','300000','10','1')," +
+            "('2','Java2','300000','10','1')," +
+            "('3','Java3','300000','10','1')," +
+            "('4','FontEnd','300000','10','2')," +
+            "('5','BackEnd','300000','10','2')," +
+            "('6','JavaScript Cơ Bản','300000','10','3')," +
+            "('7','JavaScript Nâng Cao','300000','10','3')," +
+            "('8','React Native IOS','300000','10','4')," +
+            "('9','React Native Web','300000','10','4')," +
+            "('10','React Native Android','300000','10','4')," +
+            "('11','Android Co Ban','300000','10','5')," +
+            "('12','Android Nang Cao','300000','10','5')";
     private static final String IntoLoaiSach = "INSERT INTO LoaiSach(maLoaiSach,tenLoaiSach) VALUES" +
             "('1','Java')," +
             "('2','Web')," +
@@ -74,7 +74,8 @@ public class Dbhelper extends SQLiteOpenHelper {
         String ThanhVien = " CREATE TABLE ThanhVien ( " +
                 "maTV integer primary key autoincrement, " +
                 "hoTenTV text not null, " +
-                "namSinh text not null " +
+                "namSinh text not null, " +
+                "soTK integer not null " +
                 ")";
         sqLiteDatabase.execSQL(ThanhVien);
 
@@ -88,6 +89,7 @@ public class Dbhelper extends SQLiteOpenHelper {
                 "maSach integer primary key autoincrement," +
                 "tenSach text not null," +
                 "giaThue integer not null," +
+                "soLuong integer not null," +
                 "maLoaiSach integer not null," +
                 " foreign key (maLoaiSach) REFERENCES LoaiSach (maLoaiSach) " +
                 ") ";
